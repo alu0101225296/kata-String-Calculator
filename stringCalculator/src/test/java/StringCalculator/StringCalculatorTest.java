@@ -15,6 +15,6 @@ public class StringCalculatorTest {
     @Test
     void should_return_number_if_there_is_only_one() {
         StringCalculator calculator = new StringCalculator();
-        assertEquals(calculator.sum("1"), "1"); 
+        assertEquals(calculator.sum("1"), 1); 
     }
 };
