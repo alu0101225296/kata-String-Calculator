@@ -18,4 +18,10 @@ public class StringCalculatorTest {
         assertEquals(calculator.sum("1"), 1); 
         assertEquals(calculator.sum("4"), 4); 
     }
+
+    @Test 
+    void should_return_zero_if_empty() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(calculator.sum(""), 0);
+    }
 };
