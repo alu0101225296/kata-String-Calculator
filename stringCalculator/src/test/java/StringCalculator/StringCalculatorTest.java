@@ -30,4 +30,11 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(calculator.sum(" "), 0);
     }
+
+    @Test
+    void should_be_able_to_add_multiple_number() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(calculator.sum("1, 1"), 2);
+        assertEquals(calculator.sum("2, 2, 2"), 6);
+    }
 };
