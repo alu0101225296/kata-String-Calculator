@@ -24,4 +24,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(calculator.sum(""), 0);
     }
+
+    @Test 
+    void should_return_zero_if_empty_with_spaces() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(calculator.sum(" "), 0);
+    }
 };
