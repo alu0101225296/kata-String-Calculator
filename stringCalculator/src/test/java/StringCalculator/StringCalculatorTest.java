@@ -37,4 +37,13 @@ public class StringCalculatorTest {
         assertEquals(calculator.sum("1, 1"), 2);
         assertEquals(calculator.sum("2, 2, 2"), 6);
     }
+
+
+    @Test
+    void should_consider_letters_as_zero() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(calculator.sum("ABC"), 0);
+        assertEquals(calculator.sum("ABC,GFD"), 0);
+        assertEquals(calculator.sum("ABC, 1"), 1);
+    }
 };
