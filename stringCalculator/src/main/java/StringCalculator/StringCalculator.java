@@ -1,27 +1,27 @@
 package StringCalculator;
 
 public class StringCalculator {
-    public int sum(String numberList) {
+    public int sum(String expression) { 
+
+      expression = expression.replaceAll(" ","");  
+            
+      if (expression.isEmpty()){
+          return 0;
+      } 
       
-        numberList = numberList.trim();
-        if (numberList.isEmpty()) {
-            return 0;
-        }
-        
-        String[] numbers = numberList.split(",");
+      String[] arguments = expression.split(",");
+      int result = 0;
+      for (String element : arguments) {
+          
+          if(isNumber(element)) 
+            result += Integer.parseInt(element);
+      }
+      return result;
+    }
 
-        int result = 0;
-
-        for (String number : numbers) {
-            number = number.trim();
-            if(number.matches(".*[a-zA-Z].*")) {
-               result +=0 ;
-            } 
-            else {
-              result += Integer.parseInt(number);
-            }  
-        }
-
-        return result;
+    private boolean isNumber(String element) {
+      return !element.matches(".*[a-zA-Z].*");
     }
 }
+
+
