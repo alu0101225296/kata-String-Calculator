@@ -14,7 +14,12 @@ public class StringCalculator {
 
         for (String number : numbers) {
             number = number.trim();
-            result += Integer.parseInt(number);
+            if(number.matches(".*[a-zA-Z].*")) {
+               result +=0 ;
+            } 
+            else {
+              result += Integer.parseInt(number);
+            }  
         }
 
         return result;
