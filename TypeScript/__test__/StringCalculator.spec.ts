@@ -6,4 +6,11 @@ describe('Basic add test', () => {
     expect(calculator.sum('1')).toBe(1);
     expect(calculator.sum('4')).toBe(4);
   });
+
+  it('should_return_zero_if_empty', () => {
+    const calculator = new StringCalculator();
+    expect(calculator.sum('')).toBe(0);
+    expect(calculator.sum(' ')).toBe(0);
+  });
+
 });
