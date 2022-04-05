@@ -52,7 +52,7 @@ describe('Basic add test', () => {
   it('numbers_bigger_than_1000_should_be_ignored', () => {
     const calculator = new StringCalculator();
     expect(calculator.sum('//;\n2;1001')).toBe(2);
-    expect(calculator.sum('//@\n3,6\n2@999')).toBe(1007);
+    expect(calculator.sum('//@\n3,6\n2@999')).toBe(1010);
     expect(calculator.sum('//<\n20<12<4<6,1000')).toBe(42);
   });
 

@@ -23,7 +23,8 @@ export class StringCalculator {
     const expressionArray : string[] = expression.split(new RegExp(delimiterRegex));
 
     if(expressionArray.length == 1) {
-      return Number(expression);
+      const result = Number(expression); 
+      return (result < 1000) ? Number(expression) : 0;
     } else {
       const expressionSimple : string = expressionArray.pop();
       expression = expressionArray.join();
