@@ -54,4 +54,9 @@ describe('Basic add test', () => {
     expect(calculator.sum('//[@@]\n8@@9@@3')).toBe(20);
   });
 
+  it('allow_multiple_delimiters', () => {
+    expect(calculator.sum('//[*][%]\n1*2%3')).toBe(6);
+    expect(calculator.sum('//[@][&]\n8@&3')).toBe(11);
+  });
+
 });

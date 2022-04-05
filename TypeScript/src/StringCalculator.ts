@@ -30,7 +30,6 @@ export class StringCalculator {
         delimiterRegex += `|[${newDelimiter}]`;
       } else {
         newDelimiter.match(/\[.*?\]/g).forEach((delimiter) => {
-          console.log(delimiter)
           delimiterRegex += `|${delimiter}`;
         });
       }
