@@ -31,6 +31,14 @@ describe('Basic add test', () => {
     expect(calculator.sum('1\n1')).toBe(2);
     expect(calculator.sum('3,6\n2')).toBe(11);
     expect(calculator.sum('8\n20,12\n4,6')).toBe(50);
+    expect(calculator.sum('3,6\n,2')).toBe(11); // mirar esto
+  });
+
+  it('allow_different_delimiters', () => {
+    const calculator = new StringCalculator();
+    expect(calculator.sum('//;\n1;2')).toBe(3);
+    expect(calculator.sum('//@\n3,6\n2@9')).toBe(20);
+    expect(calculator.sum('//<\n20<12<4<6')).toBe(50);
   });
 
 });

@@ -11,7 +11,6 @@ export class StringCalculator {
     if(expression.match(notAllowedCharacters))
       throw new Error('Unsupported input');
 
-
     const expressionArray : string[] = expression.split(new RegExp(delimiterRegex));
 
     if(expressionArray.length == 1) {
