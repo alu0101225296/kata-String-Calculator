@@ -3,7 +3,7 @@ package StringCalculator;
 public class StringCalculator {
     public int sum(String expression) { 
       String delimiter = ",";
-      expression = expression.replaceAll("\\s+","");  
+      expression = expression.replaceAll("\\s+","");   // mmm quiza esto sea
             
       if (expression.isEmpty()){
           return 0;

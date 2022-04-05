@@ -25,17 +25,11 @@ public class StringCalculatorTest {
         assertEquals(calculator.sum(""), 0);
     }
 
-    @Test 
-    void should_return_zero_if_empty_with_spaces() {
-        StringCalculator calculator = new StringCalculator();
-        assertEquals(calculator.sum(" "), 0);
-    }
-
     @Test
     void should_be_able_to_add_multiple_number() {
         StringCalculator calculator = new StringCalculator();
-        assertEquals(calculator.sum("1, 1"), 2);
-        assertEquals(calculator.sum("2, 2, 2"), 6);
+        assertEquals(calculator.sum("1,1"), 2);
+        assertEquals(calculator.sum("2,2,2"), 6);
     }
 
 
@@ -44,7 +38,7 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(calculator.sum("ABC"), 0);
         assertEquals(calculator.sum("ABC,GFD"), 0);
-        assertEquals(calculator.sum("ABC, 1"), 1);
+        assertEquals(calculator.sum("ABC,1"), 1);
     }
 
     /*
