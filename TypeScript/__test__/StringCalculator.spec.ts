@@ -27,4 +27,11 @@ describe('Basic add test', () => {
     expect(calculator.sum('8,20,12,4,6')).toBe(50);
   });
 
+  it('allow_newLine_as_delimiter', () => {
+    const calculator = new StringCalculator();
+    expect(calculator.sum('1\n1')).toBe(2);
+    expect(calculator.sum('3,6\n2')).toBe(11);
+    expect(calculator.sum('8\n20,12\n4,6')).toBe(50);
+  });
+
 });
