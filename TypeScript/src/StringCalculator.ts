@@ -4,7 +4,7 @@
 export class StringCalculator {
 
   public sum(expression: string): number {
-    const delimiterRegex = ',';
+    const delimiterRegex = ',|\\n';
     const numberRegex = '\\d+'; 
     const notAllowedCharacters = new RegExp(`[^${numberRegex}${delimiterRegex}]`);
 

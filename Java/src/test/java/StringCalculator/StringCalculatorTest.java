@@ -50,7 +50,9 @@ public class StringCalculatorTest {
     @Test
     void allow_newLine_as_delimiter() {
         StringCalculator calculator = new StringCalculator();
-        assertEquals(calculator.sum(“1\n2,3”), 6);
-        assertEquals(calculator.sum(“3\n7,3”), 13);
+        String test = "1\n2\n5";
+        assertEquals(calculator.sum(test), 8);
+        assertEquals(calculator.sum("1\n2,3"), 6);
+        assertEquals(calculator.sum("3,7\n3"), 13);
     }
 };

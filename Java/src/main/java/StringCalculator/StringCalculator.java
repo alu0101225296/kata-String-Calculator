@@ -2,14 +2,14 @@ package StringCalculator;
 
 public class StringCalculator {
     public int sum(String expression) { 
-
+      String delimiter = ",";
       expression = expression.replaceAll("\\s+","");  
             
       if (expression.isEmpty()){
           return 0;
       } 
       
-      String[] arguments = expression.split(",");
+      String[] arguments = expression.split(delimiter);
       int result = 0;
       for (String element : arguments) {
           
