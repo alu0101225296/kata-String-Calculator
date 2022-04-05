@@ -10,7 +10,6 @@ describe('Basic add test', () => {
   it('should_return_zero_if_empty', () => {
     const calculator = new StringCalculator();
     expect(calculator.sum('')).toBe(0);
-    expect(calculator.sum(' ')).toBe(0);
   });
 
   it('should_throw_error_if_not_allowed_character', () => {

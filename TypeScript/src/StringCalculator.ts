@@ -8,12 +8,11 @@ export class StringCalculator {
     const numberRegex = '\\d+'; 
     const notAllowedCharacters = new RegExp(`[^${numberRegex}${delimiterRegex}]`);
 
-    expression = expression.replace(/\s+/,"");
     if(expression.match(notAllowedCharacters))
       throw new Error('Unsupported input');
 
 
-    const expressionArray : string[] = expression.split(delimiterRegex);
+    const expressionArray : string[] = expression.split(new RegExp(delimiterRegex));
 
     if(expressionArray.length == 1) {
       return Number(expression);
