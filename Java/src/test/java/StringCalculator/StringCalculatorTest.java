@@ -47,6 +47,7 @@ public class StringCalculatorTest {
         assertEquals(calculator.sum("ABC, 1"), 1);
     }
 
+    /*
     @Test
     void allow_newLine_as_delimiter() {
         StringCalculator calculator = new StringCalculator();
@@ -54,5 +55,5 @@ public class StringCalculatorTest {
         assertEquals(calculator.sum(test), 8);
         assertEquals(calculator.sum("1\n2,3"), 6);
         assertEquals(calculator.sum("3,7\n3"), 13);
-    }
+    } */
 };
