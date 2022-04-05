@@ -4,6 +4,7 @@
 export class StringCalculator {
 
   public sum(expression: string): number {
+    const negativoRegex = /[-]\d+/g;
     let delimiterRegex = ',|\\n';
     const numberRegex = '\\d+'; 
 
@@ -14,7 +15,9 @@ export class StringCalculator {
     }
 
     const simpleExpressionRegex = `(^(${numberRegex}(${delimiterRegex})?)+$)|(^$)`;
-    if(!new RegExp(simpleExpressionRegex).test(expression)) 
+    if(negativoRegex.test(expression)) { // no se podria usar '-' como delimitador
+      throw new Error(`Negatives not allowed: ${expression.match(negativoRegex)}`);
+    } else if(!new RegExp(simpleExpressionRegex).test(expression)) 
       throw new Error('Unsupported input');
 
     const expressionArray : string[] = expression.split(new RegExp(delimiterRegex));
