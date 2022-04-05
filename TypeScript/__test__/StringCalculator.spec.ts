@@ -20,4 +20,11 @@ describe('Basic add test', () => {
     expect(() =>calculator.sum('A,C,1')).toThrowError('Unsupported input');
   });
 
+  it('should_be_able_to_add_multiple_number', () => {
+    const calculator = new StringCalculator();
+    expect(calculator.sum('1,1')).toBe(2);
+    expect(calculator.sum('3,6,2')).toBe(11);
+    expect(calculator.sum('8,20,12,4,6')).toBe(50);
+  });
+
 });
