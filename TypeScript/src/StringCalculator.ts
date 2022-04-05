@@ -5,6 +5,7 @@ export class StringCalculator {
 
   public sum(expression: string): number {
     const expressionArray = this.processExpression(expression);
+    
     if(expressionArray.length == 1) {
       const result = Number(expression); 
       return (result < 1000) ? Number(expression) : 0;
