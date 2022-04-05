@@ -42,4 +42,11 @@ describe('Basic add test', () => {
     expect(calculator.sum('//:\n2:2')).toBe(4);
   });
 
+  it('negative_number_will_throw_an_exception', () => {
+    const calculator = new StringCalculator();
+    expect(() => calculator.sum('3,6\n-2')).toThrowError('Negatives not allowed');
+    expect(() =>calculator.sum('-3,4')).toThrowError('Negatives not allowed');
+    expect(() =>calculator.sum('//<\n20<-12<4<-6')).toThrowError('Negatives not allowed');
+  });
+
 });
