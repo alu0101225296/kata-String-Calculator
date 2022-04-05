@@ -16,8 +16,8 @@ describe('Basic add test', () => {
   it('should_throw_error_if_not_allowed_character', () => {
     const calculator = new StringCalculator();
     expect(() => calculator.sum('ABC')).toThrowError('Unsupported input');
-    expect(() =>calculator.sum('ABC, GFD')).toThrowError('Unsupported input');
-    expect(() =>calculator.sum('ABC, 1')).toThrowError('Unsupported input');
+    expect(() =>calculator.sum('ABC,<')).toThrowError('Unsupported input');
+    expect(() =>calculator.sum('A,C,1')).toThrowError('Unsupported input');
   });
-  
+
 });
