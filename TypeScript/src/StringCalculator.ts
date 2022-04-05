@@ -3,7 +3,7 @@
  */
 export class StringCalculator {
 
-  public sum(expression: string): string {
-    return expression;
+  public sum(expression: string): number {
+    return Number(expression);
   }
 }
