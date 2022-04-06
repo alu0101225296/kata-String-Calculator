@@ -11,12 +11,12 @@ describe('Basic add test', () => {
   it('should_return_zero_if_empty', () => {
     expect(calculator.sum('')).toBe(0);
   });
-  /*
+
   it('should_throw_error_if_not_allowed_character', () => {
     expect(() => calculator.sum('ABC')).toThrowError('Unsupported input');
     expect(() =>calculator.sum('ABC,<')).toThrowError('Unsupported input');
     expect(() =>calculator.sum('A,C,1')).toThrowError('Unsupported input');
-  });*/ //ARREGLAR
+  });
 
   it('should_be_able_to_add_multiple_number', () => {
     expect(calculator.sum('1,1')).toBe(2);
@@ -56,7 +56,13 @@ describe('Basic add test', () => {
 
   it('allow_multiple_delimiters', () => {
     expect(calculator.sum('//[*][%]\n1*2%3')).toBe(6);
-    expect(calculator.sum('//[@][&]\n8@&3')).toBe(11);
+    expect(calculator.sum('//[@][&]\n8@1&3')).toBe(12);
   });
 
+  it('allow_multiple_delimiters_any_length', () => {
+    expect(calculator.sum('//[**][%]\n1**2%3')).toBe(6);
+    expect(calculator.sum('//[@@][&&&&]\n8@@1&&&&3')).toBe(12);
+    expect(calculator.sum('//[****][%][^^^]\n20^^^12****4,6%1000')).toBe(42);
+    expect(calculator.sum('//[;;]\n2;;1001')).toBe(2);
+  });
 });
