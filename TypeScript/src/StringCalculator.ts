@@ -41,8 +41,6 @@ export class StringCalculator {
     if(negativeRegex.test(expression)) { 
       throw new Error(`Negatives not allowed: ${expression.match(negativeRegex)}`);
     }else if(!new RegExp(simpleExpressionRegex).test(expression)) {
-      console.log("Delimiter: " + delimiterRegex);
-      console.log("Expression: " + expression);
       throw new Error('Unsupported input');
     }
       

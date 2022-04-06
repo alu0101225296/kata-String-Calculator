@@ -64,5 +64,6 @@ describe('Basic add test', () => {
     expect(calculator.sum('//[@@][&&&&]\n8@@1&&&&3')).toBe(12);
     expect(calculator.sum('//[****][%][^^^]\n20^^^12****4,6%1000')).toBe(42);
     expect(calculator.sum('//[;;]\n2;;1001')).toBe(2);
+    expect(calculator.sum('//[||||][__]\n2__45||||9__3')).toBe(59);
   });
 });
