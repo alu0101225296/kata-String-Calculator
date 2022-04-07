@@ -3,6 +3,8 @@ package StringCalculator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
+
 public class StringCalculatorTest {
     StringCalculator calculator = new StringCalculator();
     // "" -> 0
@@ -52,5 +54,14 @@ public class StringCalculatorTest {
         assertEquals(calculator.sum("//<\n20<12<4<6"), 42);
         assertEquals(calculator.sum("//:\n2:2"), 4);
     }
-    
+
+    @Test
+    void negative_number_will_throw_an_exception() {
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            calculator.sum("3,6\n-2");
+            calculator.sum("-3,4");
+            calculator.sum("//<\n20<-12<4<-6");
+            calculator.sum("//-\n-1-2--3");
+        });
+    }
 };
