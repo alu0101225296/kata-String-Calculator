@@ -52,4 +52,5 @@ public class StringCalculatorTest {
         assertEquals(calculator.sum("//<\n20<12<4<6"), 42);
         assertEquals(calculator.sum("//:\n2:2"), 4);
     }
+    
 };
