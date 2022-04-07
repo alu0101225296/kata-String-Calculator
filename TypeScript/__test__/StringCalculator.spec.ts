@@ -55,7 +55,6 @@ describe('Basic add test', () => {
   it('delimiters_can_be_of_any_length', () => {
     expect(calculator.sum('//[***]\n1***2***3')).toBe(6);
     expect(calculator.sum('//[@@]\n8@@9@@3')).toBe(20);
-    expect(calculator.sum('//[--]\n5--1--3')).toBe(9);
   });
 
   it('allow_multiple_delimiters', () => {
@@ -70,4 +69,10 @@ describe('Basic add test', () => {
     expect(calculator.sum('//[;;]\n2;;1001')).toBe(2);
     expect(calculator.sum('//[||||][__]\n2__45||||9__3')).toBe(59);
   });
+
+  it('negative_number_will_throw_an_exception', () => {
+    expect(() =>calculator.sum('//-\n-1-2--3')).toThrowError('Negatives not allowed: -1,-3');
+    expect(calculator.sum('//[--]\n5--1--3')).toBe(9);
+  });
+
 });

@@ -41,9 +41,6 @@ export class StringCalculator {
       throw new Error('Unsupported input');
     }
     
-    
-
-
     return expression.split(new RegExp(delimiterRegex));
   }
 
