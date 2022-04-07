@@ -2,7 +2,7 @@
  * StringCalculator Class
  */
 export class StringCalculator {
-  private negativeRegex = /[-]\d+/g;
+  private negativeRegex = /(?<!\d+)[-]\d+/g; // (?<!x) negative lookbehind
   private numberRegex = '\\d+';
 
   public sum(expression: string): number {
@@ -33,13 +33,16 @@ export class StringCalculator {
     }
 
     const simpleExpressionRegex = `(^(${this.numberRegex}(${delimiterRegex})?)+$)|(^$)`;
-    if (this.negativeRegex.test(expression)) {
-      throw new Error(
-        `Negatives not allowed: ${expression.match(this.negativeRegex)}`,
-      );
-    } else if (!new RegExp(simpleExpressionRegex).test(expression)) {
+    if (!new RegExp(simpleExpressionRegex).test(expression)) { 
+      if (this.negativeRegex.test(expression)) 
+        throw new Error(
+          `Negatives not allowed: ${expression.match(this.negativeRegex)}`,
+        );
       throw new Error('Unsupported input');
     }
+    
+    
+
 
     return expression.split(new RegExp(delimiterRegex));
   }
