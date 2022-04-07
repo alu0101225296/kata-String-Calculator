@@ -21,7 +21,8 @@ public class StringCalculator {
         if(isNumber(element)) {
           if(Integer.parseInt(element) < 0)
             throw new ArithmeticException("Error: cant accept negative numbers");
-          result += Integer.parseInt(element);
+          if(Integer.parseInt(element) < 1000)
+            result += Integer.parseInt(element);
         }  
       }
       return result;
