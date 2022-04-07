@@ -2,8 +2,7 @@ package StringCalculator;
 
 public class StringCalculator {
     public int sum(String expression) { 
-      String delimiter = ",";
-      expression = expression.replaceAll("\\s+","");   // mmm quiza esto sea
+      String delimiter = ",|\\n";
             
       if (expression.isEmpty()){
           return 0;
