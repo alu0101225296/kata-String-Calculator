@@ -17,10 +17,12 @@ public class StringCalculator {
 
       String[] arguments = expression.split(delimiter);
       int result = 0;
-      for (String element : arguments) {
-          
-          if(isNumber(element)) 
-            result += Integer.parseInt(element);
+      for (String element : arguments) {   
+        if(isNumber(element)) {
+          if(Integer.parseInt(element) < 0)
+            throw new ArithmeticException("Error: cant accept negative numbers");
+          result += Integer.parseInt(element);
+        }  
       }
       return result;
     }
