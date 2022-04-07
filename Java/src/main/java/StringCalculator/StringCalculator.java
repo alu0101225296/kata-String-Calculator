@@ -4,8 +4,8 @@ public class StringCalculator {
     public int sum(String expression) { 
       String delimiter = ",|\\n";
             
-      if (expression.isEmpty()){
-          return 0;
+      if (expression.isEmpty()) {
+        return 0;
       } 
       
       String[] arguments = expression.split(delimiter);
