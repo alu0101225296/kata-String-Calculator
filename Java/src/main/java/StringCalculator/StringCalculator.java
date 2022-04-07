@@ -8,6 +8,13 @@ public class StringCalculator {
         return 0;
       } 
       
+      if (expression.startsWith("//")) {
+        Integer limit = expression.indexOf("\n");
+        String delimiters = expression.substring(2, limit);
+        expression = expression.substring(limit + 1);
+        delimiter += ("|\\" + delimiters);
+      }
+
       String[] arguments = expression.split(delimiter);
       int result = 0;
       for (String element : arguments) {
@@ -19,7 +26,7 @@ public class StringCalculator {
     }
 
     private boolean isNumber(String element) {
-      return !element.matches(".*[a-zA-Z].*");
+      return element.matches(".*[\\d+].*");
     }
 }
 

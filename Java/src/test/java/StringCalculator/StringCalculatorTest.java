@@ -47,7 +47,7 @@ public class StringCalculatorTest {
 
     @Test
     void allow_different_delimiters() {
-        assertEquals(calculator.sum("//;\n1;2"), 8);
+        assertEquals(calculator.sum("//;\n1;2"), 3);
         assertEquals(calculator.sum("//@\n3,6\n2@9"), 20);
         assertEquals(calculator.sum("//<\n20<12<4<6"), 42);
         assertEquals(calculator.sum("//:\n2:2"), 4);
