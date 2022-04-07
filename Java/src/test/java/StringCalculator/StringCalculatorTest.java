@@ -64,4 +64,12 @@ public class StringCalculatorTest {
             calculator.sum("//-\n-1-2--3");
         });
     }
+
+    @Test
+    void numbers_bigger_than_1000_should_be_ignored() {
+        assertEquals(calculator.sum("//;\n1;2;1001"), 3);
+        assertEquals(calculator.sum("//@\n3,6\n2@9@1001"), 20);
+        assertEquals(calculator.sum("//<\n20<12<4<6<1001"), 42);
+        assertEquals(calculator.sum("//:\n2:2:1002"), 4);
+    }
 };
