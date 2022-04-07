@@ -12,7 +12,7 @@ export class StringCalculator {
       const result = Number(expression);
       return result < 1000 ? Number(expression) : 0;
     } else {
-      const expressionSimple: string = expressionArray.pop();
+      const expressionSimple: string = expressionArray.pop()!;
       expression = expressionArray.join();
       return this.sum(expression) + this.sum(expressionSimple);
     }
@@ -29,7 +29,7 @@ export class StringCalculator {
       delimiterRegex +=
         newDelimiter.length == 1
           ? `|[${newDelimiter}]`
-          : '|' + this.getDelimiters(newDelimiter.match(/\[.*?\]/g)).join('|');
+          : '|' + this.getDelimiters(newDelimiter.match(/\[.*?\]/g)!).join('|');
     }
 
     const simpleExpressionRegex = `(^(${this.numberRegex}(${delimiterRegex})?)+$)|(^$)`;
@@ -49,7 +49,7 @@ export class StringCalculator {
       const delimiter = delimiterArray[0].slice(1, -1);
       return [delimiter.replace(/(.{1})/g, '[\\$1]')];
     }
-    return this.getDelimiters([delimiterArray.pop()]).concat(
+    return this.getDelimiters([delimiterArray.pop()!]).concat(
       this.getDelimiters(delimiterArray),
     );
   }
