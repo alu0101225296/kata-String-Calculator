@@ -2,7 +2,9 @@
  * StringCalculator Class
  */
 export class StringCalculator {
-
+  private negativeRegex = /[-]\d+/g;
+  private numberRegex = '\\d+';
+  
   public sum(expression: string): number {
 
     const expressionArray = this.processExpression(expression);
@@ -17,36 +19,38 @@ export class StringCalculator {
     }
   }
 
-  private processExpression(expression: string): string[] {
-    const negativeRegex = /[-]\d+/g;
+  private processExpression(expression: string): string[] {   
     let delimiterRegex = ',|\\n';
-    const numberRegex = '\\d+'; 
-
+     
     if(expression.startsWith('//')) { 
       const definitionEnd = expression.indexOf('\n');
       const newDelimiter = expression.slice(2, definitionEnd);
       expression = expression.slice(definitionEnd + 1);
 
-      if(newDelimiter.length == 1) {
+      if(newDelimiter.length == 1) 
         delimiterRegex += `|[${newDelimiter}]`;
-      } else {
-        newDelimiter.match(/\[.*?\]/g).forEach((delimiter) => {
-          const delimitedFormatted = delimiter.slice(1, -1).replace(/(.{1})/g, '[\\$1]');
-          delimiterRegex += `|${delimitedFormatted}`;
-        });
-      }
+        else 
+        delimiterRegex += '|' + this.getDelimiters(newDelimiter.match(/\[.*?\]/g)).join('|');
     }
 
-    const simpleExpressionRegex = `(^(${numberRegex}(${delimiterRegex})?)+$)|(^$)`;
-    if(negativeRegex.test(expression)) { 
-      throw new Error(`Negatives not allowed: ${expression.match(negativeRegex)}`);
-    }else if(!new RegExp(simpleExpressionRegex).test(expression)) {
+    const simpleExpressionRegex = `(^(${this.numberRegex}(${delimiterRegex})?)+$)|(^$)`;
+    if(this.negativeRegex.test(expression)) { 
+      throw new Error(`Negatives not allowed: ${expression.match(this.negativeRegex)}`);
+    } else if(!new RegExp(simpleExpressionRegex).test(expression)) {
       throw new Error('Unsupported input');
     }
-      
-    
+       
     return expression.split(new RegExp(delimiterRegex));
   } 
+
+  private getDelimiters(delimiterArray : string[]) : string[] {
+    if(delimiterArray.length == 1) {
+      const delimiter = delimiterArray[0].slice(1, -1);
+      return [delimiter.replace(/(.{1})/g, '[\\$1]')];
+    } else {
+      return (this.getDelimiters([delimiterArray.pop()])).concat(this.getDelimiters(delimiterArray));
+    }
+  }
 }
 
 
