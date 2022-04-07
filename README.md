@@ -1,3 +1,4 @@
+[![CI for String Calculator](https://github.com/alu0101225296/kata-String-Calculator.git/actions/workflows/test.yaml/badge.svg)](https://github.com/alu0101225296/kata-String-Calculator.git/actions/workflows/test.yaml)
 # [Kata String Calculator](https://osherove.com/tdd-kata-1)
 
 - Java
